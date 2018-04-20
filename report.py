@@ -69,8 +69,8 @@ def gather():
 def build_metric_dictionary():
     for vol_id,data in raw_data.iteritems():
        metric_batch[vol_id] = {
-               'volume.real_size': [{'timestamp': data['ts'], 'value': float(data['vol'])}],
-               'snapshot.real_size': [{'timestamp': data['ts'], 'value': float(data['snap'])}]
+               'volume.real_size': [{'timestamp': data['ts'], 'value': float(data['vol']) / 1024 / 1024 / 1024}],
+               'snapshot.real_size': [{'timestamp': data['ts'], 'value': float(data['snap']) / 1024 / 1024 / 1024}]
                }
 
 def upload():
